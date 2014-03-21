@@ -1,6 +1,8 @@
 <div class="navbar navbar-default">
 	<div class="container">
-		<h3 class="navbar-brand">Your Turn</h3>
+		<a href="#" class="navbar-brand">
+			<span class="glyphicon glyphicon-user"></span> Your Turn
+		</a>
 	</div>
 </div>
 <div class="container">
@@ -17,16 +19,14 @@
 						</div>
 					</form>
 				</div>
-				<div class="panel-body">
-					<div data-ui-sortable class="list-group" data-ng-model="items">
-						<a href="" data-ng-repeat="item in items" class="list-group-item" >
-							{{item}}
-							<span class="badge">
-								<span data-ng-click="remove($index)" class="glyphicon glyphicon-minus"></span>
-							</span>
-						</a>
-					</div>	
-				</div>
+				<div data-ui-sortable class="list-group" data-ng-model="items">
+					<a href="" data-ng-repeat="item in items" class="list-group-item" >
+						{{item}}
+						<span class="badge">
+							<span data-ng-click="remove($index)" class="glyphicon glyphicon-minus"></span>
+						</span>
+					</a>
+				</div>	
 			</div>
 		</div>
 	</div>
@@ -34,6 +34,10 @@
 
 <div class="footer">
 	<div class="container">
-		<p>♥ Hasan</p>
+		<div class="row">
+			<div class="col-xs-push-8 col-md-push-11 col-xs-4 col-md-1">
+				<p >Hasan ♥</p>
+			</div>
+		</div>
 	</div>
 </div>
