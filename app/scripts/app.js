@@ -5,7 +5,8 @@ angular.module('yourturnApp', [
     'ngResource',
     'ngSanitize',
     'ngRoute',
-    'ui'
+    'ui',
+    'LocalStorageModule'
 ])
     .config(function($routeProvider) {
         $routeProvider

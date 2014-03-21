@@ -1,17 +1,24 @@
 <div class="header">
-  <h3 class="text-muted">Your Turn</h3>
+	<h3 class="text-muted">Your Turn</h3>
 </div>
 
-<div class="row marketing">
-  <ul data-ui-sortable class="list-group">
-    <li class="list-group-item">item1</li>
-    <li class="list-group-item">item2</li>
-    <li class="list-group-item">item3</li>
-    <li class="list-group-item">item4</li>
-    <li class="list-group-item">item5</li>
-  </ul>
+<div class="row">
+	<form data-ng-submit="add()">
+		<div class="input-group">
+			<input type="text" class="form-control" data-ng-model="newItem"/>	
+			<span class="input-group-btn">
+				<button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+			</span>
+		</div>
+	</form>
+</div>
+<hr>
+<div class="row">
+	<ul data-ui-sortable class="list-group">
+		<li data-ng-repeat="item in items" class="list-group-item">{{item}}</li>
+	</ul>
 </div>
 
 <div class="footer">
-  <p>♥ Hasan</p>
+	<p>♥ Hasan</p>
 </div>
