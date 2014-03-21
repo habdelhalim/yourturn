@@ -12,6 +12,10 @@ angular.module('yourturnApp')
             }
         };
 
+        $scope.remove = function(index) {
+            $scope.items.splice(index, 1);
+        };
+
         $scope.$watchCollection('items', function() {
             localStorageService.add('items', angular.toJson($scope.items));
         });

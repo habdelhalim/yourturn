@@ -1,24 +1,39 @@
-<div class="header">
-	<h3 class="text-muted">Your Turn</h3>
+<div class="navbar navbar-default">
+	<div class="container">
+		<h3 class="navbar-brand">Your Turn</h3>
+	</div>
 </div>
-
-<div class="row">
-	<form data-ng-submit="add()">
-		<div class="input-group">
-			<input type="text" class="form-control" data-ng-model="newItem"/>	
-			<span class="input-group-btn">
-				<button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
-			</span>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<form data-ng-submit="add()" role="form">
+						<div class="input-group">
+							<input type="text" class="form-control" data-ng-model="newItem"/>	
+							<span class="input-group-btn">
+								<button class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+							</span>
+						</div>
+					</form>
+				</div>
+				<div class="panel-body">
+					<div data-ui-sortable class="list-group" data-ng-model="items">
+						<a href="" data-ng-repeat="item in items" class="list-group-item" >
+							{{item}}
+							<span class="badge">
+								<span data-ng-click="remove($index)" class="glyphicon glyphicon-minus"></span>
+							</span>
+						</a>
+					</div>	
+				</div>
+			</div>
 		</div>
-	</form>
-</div>
-<hr>
-<div class="row">
-	<ul data-ui-sortable class="list-group">
-		<li data-ng-repeat="item in items" class="list-group-item">{{item}}</li>
-	</ul>
+	</div>
 </div>
 
 <div class="footer">
-	<p>♥ Hasan</p>
+	<div class="container">
+		<p>♥ Hasan</p>
+	</div>
 </div>
