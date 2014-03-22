@@ -19,4 +19,8 @@ angular.module('yourturnApp')
         $scope.$watchCollection('items', function() {
             localStorageService.add('items', angular.toJson($scope.items));
         });
+
+        $scope.sortableOptions = {
+            axis: 'y'
+        }
     });
