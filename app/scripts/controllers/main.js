@@ -2,8 +2,20 @@
 
 angular.module('yourturnApp')
     .controller('MainCtrl', function($scope, $firebase, localStorageService) {
-        var teamdb = new Firebase('https://yourturn.firebaseIO.com/team');
-        $scope.team = $firebase(teamdb);
+        var teamdbRef = new Firebase('https://yourturn.firebaseIO.com/team');
+        var auth = new FirebaseSimpleLogin(teamdbRef, function(error, user) {
+            if (error) {
+                console.log(error);
+            } else if (user) {
+                console.log('User ID' + user.id);
+                $scope.user = user;
+            } else {
+                console.log('user logged out');
+            }
+
+        });
+        $scope.team = $firebase(teamdbRef);
+
 
         $scope.add = function() {
             if ($scope.newItem) {
@@ -25,5 +37,10 @@ angular.module('yourturnApp')
 
         $scope.sortableOptions = {
             axis: 'y'
+        };
+
+        $scope.login = function() {
+            auth.login('github');
         }
+
     });
