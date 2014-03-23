@@ -17,6 +17,10 @@ angular.module('yourturnApp')
 
         $scope.remove = function(member) {
             $scope.team.$remove(member.$id);
+            $scope.team.$add({
+                id: member.id,
+                text: member.text
+            });
         };
 
         $scope.sortableOptions = {
