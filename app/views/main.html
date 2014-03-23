@@ -19,11 +19,11 @@
 						</div>
 					</form>
 				</div>
-				<div data-ui-sortable="sortableOptions" class="list-group" data-ng-model="items">
-					<a href="" data-ng-repeat="item in items" class="list-group-item" >
-						{{item}}
+				<div data-ui-sortable="sortableOptions" class="list-group" data-ng-model="team">
+					<a href="" data-ng-repeat="member in team | orderByPriority" class="list-group-item" >
+						{{member.text}}
 						<span class="badge">
-							<span data-ng-click="remove($index)" class="glyphicon glyphicon-minus"></span>
+							<span data-ng-click="remove(member)" class="glyphicon glyphicon-minus"></span>
 						</span>
 					</a>
 				</div>	

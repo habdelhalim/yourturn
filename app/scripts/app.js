@@ -6,7 +6,8 @@ angular.module('yourturnApp', [
     'ngSanitize',
     'ngRoute',
     'ui',
-    'LocalStorageModule'
+    'LocalStorageModule',
+    'firebase'
 ])
     .config(function($routeProvider) {
         $routeProvider
