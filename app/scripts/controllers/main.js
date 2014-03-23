@@ -3,17 +3,17 @@
 angular.module('yourturnApp')
     .controller('MainCtrl', function($scope, $firebase, localStorageService) {
         var teamdbRef = new Firebase('https://yourturn.firebaseIO.com/team');
-        var auth = new FirebaseSimpleLogin(teamdbRef, function(error, user) {
+        $scope.auth = new FirebaseSimpleLogin(teamdbRef, function(error, user) {
             if (error) {
                 console.log(error);
             } else if (user) {
-                console.log('User ID' + user.id);
                 $scope.user = user;
             } else {
                 console.log('user logged out');
             }
 
         });
+
         $scope.team = $firebase(teamdbRef);
 
 
@@ -40,7 +40,11 @@ angular.module('yourturnApp')
         };
 
         $scope.login = function() {
-            auth.login('github');
-        }
+            $scope.auth.login('github');
+        };
+
+        $scope.logout = function() {
+            $scope.auth.logout();
+        };
 
     });

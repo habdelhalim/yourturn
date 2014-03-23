@@ -14,8 +14,15 @@
 					<a href="" data-ng-click="login()" data-ng-if="user == null">
 						<span class="glyphicon glyphicon-lock"></span> Login
 					</a>
+				</li>
+				<li  class="dropdown">
 					<a href="#" data-ng-if="user != null">
-						<span class="glyphicon glyphicon-user"></span> {{user.name}}
+						<span class="glyphicon glyphicon-user"></span> {{user.name}} 
+					</a>
+				</li>
+				<li class="dropdown">
+					<a href="" data-ng-if="user != null" data-ng-click="logout()">
+						<span class="glyphicon glyphicon-off"></span> Logout
 					</a>
 				</li>
 			</ul>
@@ -26,7 +33,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="panel panel-default">
-				<div class="panel-heading">
+				<div class="panel-heading" data-ng-if="user != null">
 					<form data-ng-submit="add()" role="form">
 						<div class="input-group">
 							<input type="text" class="form-control" data-ng-model="newItem"/>	
@@ -36,10 +43,10 @@
 						</div>
 					</form>
 				</div>
-				<div data-ui-sortable="sortableOptions" class="list-group" data-ng-model="team">
+				<div class="list-group">
 					<a href="" data-ng-repeat="member in team | orderByPriority" class="list-group-item" >
 						{{member.text}}
-						<span class="badge">
+						<span class="badge" data-ng-if="user != null">
 							<span data-ng-click="remove(member)" class="glyphicon glyphicon-minus"></span>
 						</span>
 					</a>
