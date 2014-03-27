@@ -23,7 +23,8 @@ angular.module('yourturnApp')
       if ($scope.newItem) {
         $scope.team.$add({
           id: $scope.newItem,
-          text: $scope.newItem
+          text: $scope.newItem,
+          created_by: $scope.user.login
         });
         $scope.newItem = '';
       }
@@ -31,10 +32,10 @@ angular.module('yourturnApp')
 
     $scope.remove = function (member) {
       $scope.team.$remove(member.$id);
-      $scope.team.$add({
-        id: member.id,
-        text: member.text
-      });
+      member.updated_by = $scope.user.login;
+      var currentdate = new Date();
+      member.updated_at = currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear() + " @ " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+      $scope.team.$add(member);
     };
 
     $scope.sortableOptions = {
