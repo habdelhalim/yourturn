@@ -47,7 +47,10 @@
 					<li data-ng-repeat="member in team | orderByPriority" class="list-group-item" data-ng-class="{'list-group-item-warning':$index==0}" data-ng-cloak>
 						<a href="" data-ng-show="user" data-ng-click="remove(member)" class="btn btn-xs btn-default pull-right"> <span  class="glyphicon glyphicon-ok"></span> </a>
 						<h5 class="list-group-item-heading"> 
-							{{member.text}} 
+							<span class="badge count">
+								{{member.count}}
+							</span>
+							   {{member.text}} 
 							<span data-ng-show="member.updated_by" class="updated-by text-muted pull-right hidden-xs">
 								<small> last updated by <strong>{{member.updated_by}}</strong>, at <strong>{{member.updated_at}}</strong></small>
 							</span>

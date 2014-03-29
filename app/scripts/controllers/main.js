@@ -24,7 +24,8 @@ angular.module('yourturnApp')
         $scope.team.$add({
           id: $scope.newItem,
           text: $scope.newItem,
-          created_by: $scope.user.login
+          created_by: $scope.user.login,
+          count: 0
         });
         $scope.newItem = '';
       }
@@ -33,6 +34,7 @@ angular.module('yourturnApp')
     $scope.remove = function (member) {
       $scope.team.$remove(member.$id);
       member.updated_by = $scope.user.login;
+      member.count = member.count + 1;
       var currentdate = new Date();
       member.updated_at = currentdate.getDate() + "/" + (currentdate.getMonth() + 1) + "/" + currentdate.getFullYear() + " @ " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
       $scope.team.$add(member);
